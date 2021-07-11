@@ -104,7 +104,7 @@ class Database:
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-o", "--output", default="./gui/SnapShots",
+ap.add_argument("-o", "--output", default="./resources/SnapShots",
     help="path to output directory to store snapshots (default: current folder")
 args = vars(ap.parse_args())
 

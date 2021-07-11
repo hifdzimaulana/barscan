@@ -1,0 +1,14 @@
+certifi==2021.5.30
+chardet==4.0.0
+docutils==0.17.1
+idna==2.10
+numpy==1.21.0
+opencv-python==4.5.2.54
+Pillow==8.3.1
+playsound==1.2.2
+Pygments==2.9.0
+pypiwin32==223
+pywin32==301
+pyzbar==0.1.8
+requests==2.25.1
+urllib3==1.26.6
