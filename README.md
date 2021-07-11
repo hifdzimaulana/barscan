@@ -1,4 +1,4 @@
-# QR Guests
+# QR Presence
 
 windows app built with OpenCV + pyzbar to scan qr code and take a photo then fill presence in SQLite database. 
 
