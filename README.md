@@ -12,7 +12,6 @@ pip install -r requirements.txt
 
 ## Usage
 
-```python
 1. Set your folder to store photo in app.py
 2. Create .db file in this repository then set the database connection and table name in ```class Database``` to your database.
 3. Make sure you have generated hash code from names column in database table and convert hash to qrcode (this feature will be added ASAP :))
