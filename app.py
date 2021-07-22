@@ -8,12 +8,13 @@ import tkinter as tk
 import argparse
 import cv2
 import os
+import threading, time
 
 class Application:
     def __init__(self, output_path = "./"):
         """ Initialize application which uses OpenCV + Tkinter. It displays
             a video stream in a Tkinter window and stores current snapshot on disk """
-        self.vs = cv2.VideoCapture(0) 
+        self.vs = cv2.VideoCapture(2)
         self.output_path = output_path
         self.current_image = None
 
@@ -58,11 +59,12 @@ class Application:
                         self.database.update_time(decoded)
                         name = self.database.hash_name(decoded)
                         self.label.config(text=f"Selamat datang, {name}")
+                        threading.Thread(target=self.take_snapshot).start()
         self.root.after(30, self.video_loop)
 
     def take_snapshot(self):
         """ Take snapshot and save it to the file """
-        playsound("C:/Users/Omen/Downloads/Music/shutter.mp3", block=False)
+        playsound(r"C:/Users/Omen/Downloads/mantap.wav", block=True)
         ts = datetime.now()
         filename = f"{ts.strftime('%Y-%m-%d_%H-%M-%S')}.png"
         path = os.path.join(self.output_path, filename)
