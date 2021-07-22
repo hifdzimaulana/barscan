@@ -36,7 +36,7 @@ class Application:
         self.database = Database()
         self.attended = []
         self.hashes = Database().hashes()
-        self.detected = False
+        self.filename = dict(name='', date='')
 
         self.video_loop()
 
@@ -58,6 +58,8 @@ class Application:
                         self.database.update_presence(decoded)
                         self.database.update_time(decoded)
                         name = self.database.hash_name(decoded)
+                        self.filename['name'] = name
+                        self.filename['date'] = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
                         self.label.config(text=f"Selamat datang, {name}")
                         threading.Thread(target=self.take_snapshot).start()
         self.root.after(30, self.video_loop)
@@ -66,7 +68,7 @@ class Application:
         """ Take snapshot and save it to the file """
         playsound(r"C:/Users/Omen/Downloads/mantap.wav", block=True)
         ts = datetime.now()
-        filename = f"{ts.strftime('%Y-%m-%d_%H-%M-%S')}.png"
+        filename = f"{self.filename['date']} {self.filename['name']}.png"
         path = os.path.join(self.output_path, filename)
         self.current_image.save(path, "PNG")
         print("[INFO] saved {}".format(filename))
